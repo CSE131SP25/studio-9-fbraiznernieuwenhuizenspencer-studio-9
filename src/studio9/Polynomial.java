@@ -5,12 +5,13 @@ import java.util.LinkedList;
 public class Polynomial {
 	
 	private LinkedList<Double> list;
-
+	
+	
 	/**
 	 * Constructs a Polynomial with no terms yet.
 	 */
 	public Polynomial() {
-		//FIXME
+		list = new LinkedList<Double>();
 	}
 
 	
@@ -20,7 +21,7 @@ public class Polynomial {
 	 * @return polynomial with added term
 	 */
 	public void addTerm(double coeff) {
-		//FIXME
+		list.add(coeff);
 	}
 	
 	/*
@@ -29,8 +30,23 @@ public class Polynomial {
 	 * Cx^N + Cx^N-1 + ... + Cx + C
 	 */
 	public String toString() {
-		return ""; //FIXME
-	}
+		String polynomial = "";
+		for (int i = list.size(); i >= 0; i--) {
+			polynomial = polynomial + list.get(list.size() - i);
+			if (i == 0) {
+				polynomial = polynomial + " ";
+			}
+			else if (i == 1) {
+				polynomial = polynomial + "x ";
+			}
+			else {
+				polynomial = polynomial + "x^" + i;
+			}
+		}
+		return polynomial;
+		}
+	
+	
 	
 	/**
 	 * 
